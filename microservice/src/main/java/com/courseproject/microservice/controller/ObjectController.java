@@ -114,7 +114,7 @@ public class ObjectController {
             Object object1=objectService.getObject(ObTid).get();
             object1.setName(object.getName());
             object1.setDescription(object.getDescription());
-            if(objectService.getObject(object.getParentId()).isPresent()){
+            if(object.getParentId()!=null&&objectService.getObject(object.getParentId()).isPresent()){
                 Object parent=objectService.getObject(object.getParentId()).get();
                 object1.setParent_id(parent);
             }
