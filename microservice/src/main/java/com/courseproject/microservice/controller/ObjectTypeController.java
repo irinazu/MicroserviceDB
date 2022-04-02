@@ -105,7 +105,7 @@ public class ObjectTypeController {
             ObjectType objectType=objectTypeService.getById(id).get();
             objectType.setName(objectTypeChange.getName());
             objectType.setDescription(objectTypeChange.getDescription());
-            if(objectTypeService.getById(objectTypeChange.getParentId()).isPresent()){
+            if(objectTypeChange.getParentId()!=null&&objectTypeService.getById(objectTypeChange.getParentId()).isPresent()){
                 ObjectType parent=objectTypeService.getById(objectTypeChange.getParentId()).get();
                 objectType.setParent_id(parent);
             }
